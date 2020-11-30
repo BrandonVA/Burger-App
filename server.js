@@ -13,6 +13,10 @@ app.use(express.json());
 // Setting up static paths
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Sets up handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Importing in the routes for the api program side of the app.
 // require('./routes/apiRoutes')(app);
 // Importing in the routes for the static html links for the client side of the app.
