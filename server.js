@@ -1,5 +1,6 @@
 const express = require('express');
-const path = require('path')
+const path = require('path');
+const exphbs = require('express-handlebars');
 
 // Creating the app and setting up the port
 const app = express();
@@ -21,7 +22,16 @@ app.set("view engine", "handlebars");
 // require('./routes/apiRoutes')(app);
 // Importing in the routes for the static html links for the client side of the app.
 // require('./routes/htmlRoutes')(app);
+// -------------------------------------------------------------------------------------------
+const ormBurger = require('./config/orm');
+ormBurger.selectAll();
 
+const burger = require('./models/burger');
+let burgerTitle = 'Fillet of Fish';
+burger.createBurger(burgerTitle)
+
+ormBurger.selectAll();
+// -------------------------------------------------------------------------------------------
 // Listen for a call to see what to do next
 app.listen(PORT, ()=> {
     console.log(`Listing at port: ${PORT}`);
