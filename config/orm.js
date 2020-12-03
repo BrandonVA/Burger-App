@@ -1,23 +1,26 @@
 const connection = require('./connection');
-const dbCalls = {
-    selectAll: function () {
-        connection.query('SELECT * FROM burgers',(err, results)=> {
+const orm = {
+    selectAll: function (res,table) {
+        const query = 'SELECT * FROM ??'
+        connection.query(query, table, (err, results)=> {
+            if (err) throw err;
+            console.table(results);
+            res.render("index", { burger: results });
+        });
+    },
+    insertOne: function (table, newRow ) {
+        const query = `INSERT INTO ?? SET ?`;
+        connection.query(query, [table, newRow], (err, results)=> {
             if (err) throw err;
             console.table(results);
         });
     },
-    insertOne: function (newBurger) {
-        const query = `INSERT INTO burgers SET ?`;
-        connection.query(query, newBurger, (err, results)=> {
+    updateOne: function (table, setColumn, columnValue, rowID ) {
+        const query = `UPDATE ?? SET ?? = ? WHERE id = ?`
+        connection.query(query, [table, setColumn, columnValue, rowID],(err, results)=> {
             if (err) throw err;
-        });
-    },
-    updateOne: function (burger) {
-        const {id,burger_name, devoured} = burger;
-        const query = `UPDATE burgers SET devoured = ? WHERE id = ?`
-        connection.query(query, [devoured, id],(err, results)=> {
-            if (err) throw err;
+            console.table(results);
         });
     }
 }
-module.exports = dbCalls;
+module.exports = orm;
