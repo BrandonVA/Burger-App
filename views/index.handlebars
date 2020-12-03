@@ -4,8 +4,19 @@
     <p>
       {{this.id}}. {{this.burger_name}}
 
-      <button data-burgerId="{{this.id}}" class="devour">Devour it!</button>
+      <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
     </p>
   </li>
   {{/each}}
 </ul>
+
+<script>
+    $('.devour').on('click', function(event) {
+        const id = $(this).data('burgerid');
+        console.log(id);
+        $.ajax('/api/devour/' + id, {type: 'DELETE'}).then(function() {
+            location.reload();
+        })
+        
+    })
+</script>
