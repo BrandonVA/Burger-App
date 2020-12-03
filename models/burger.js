@@ -4,12 +4,16 @@ const burger = {
     renderAll: function(res) {
         orm.selectAll(res, 'burgers');
     },
-    createBurger: function(title) {
+    createBurger: function(res, title) {
         const newBurger = {
             burger_name: title,
             devoured: false
         };
         orm.insertOne('burgers', newBurger);
+    },
+    devourOne: function(burgerid) {
+        //table, setColumn, columnValue, rowID
+        orm.updateOne('burgers', 'devoured', true, burgerid);
     }
 }
 
