@@ -22,15 +22,18 @@ app.set("view engine", "handlebars");
 // require('./routes/apiRoutes')(app);
 // Importing in the routes for the static html links for the client side of the app.
 // require('./routes/htmlRoutes')(app);
-// -------------------------------------------------------------------------------------------
-const ormBurger = require('./config/orm');
-ormBurger.selectAll();
+// ------------------------------------------ OLD ORM CALLS-------------------------------------------------
+// const orm = require('./config/orm');
+// const burger = require('./models/burger');
+// let res = 'nothing';
+// burger.renderAll(res);
 
-const burger = require('./models/burger');
-let burgerTitle = 'Fillet of Fish';
-burger.createBurger(burgerTitle)
 
-ormBurger.selectAll();
+// let burgerTitle = 'Bucket of Bacon';
+// burger.createBurger(burgerTitle)
+// burger.renderAll(res);
+require('./controllers/burger_controller')(app);
+
 // -------------------------------------------------------------------------------------------
 // Listen for a call to see what to do next
 app.listen(PORT, ()=> {
