@@ -1,38 +1,87 @@
-<h2>Burgers to Devour</h2>
-<ul>
-  {{#each burgerToEat}}
-  <li>
-    <p>
-      {{this.id}}. {{this.burger_name}}
+<main class="my-2 mx-5">
 
-      <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
-    </p>
-  </li>
-  {{/each}}
-</ul>
-<h2>Devoured Burgers</h2>
-<ul>
-  {{#each devouredBurgers}}
-  <li>
-    <p>
-      {{this.id}}. {{this.burger_name}}
+  <div class="jumbotron text-center">
+    <h1 class="display-4 mb-2">Eat Da Burger</h1>
+    <img src="assets/images/burger.png" alt="clip art of a burger" class="rounded">
+    <hr class="my-4">
+    <form >
+      <label class="mx-3" for="burger-name">Add New Burger</label>
+      <div class="input-group mx-3">
 
-      <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
-    </p>
-  </li>
-  {{/each}}
-</ul>
+        <input type="text" class="form-control" placeholder="New Burger" aria-label="burger type"
+          aria-describedby="addBurger" id="burger-name" name="burger-name">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit" id="addBurger">Add</button>
+        </div>
+      </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-12">
+
+
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Burgers to Devour</h2>
+      <ul class="list-group">
+        {{#each burgerToEat}}
+        <li class="list-group-item">
+          <p>
+            {{this.id}}. {{this.burger_name}}
+            <button data-burgerid="{{this.id}}" type="button" class="devour btn btn-danger float-right">Devour
+              it!</button>
+          </p>
+
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>Devoured Burgers</h2>
+      <ul class="list-group">
+        {{#each devouredBurgers}}
+        <li class="list-group-item">
+          <p>
+            {{this.id}}. {{this.burger_name}}
+          </p>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</main>
+
+
+
+
+
 
 <script>
-    $(document).ready(function() {
-    $('.devour').on('click', function(event) {
-        const id = $(this).data('burgerid');
-        console.log(id);
-        $.ajax('/api/devour/' + id, {type: 'DELETE'}).then(function() {
-            
-        })
-        location.reload(true);
+  $(document).ready(function () {
+    $('.devour').on('click', function (event) {
+      const id = $(this).data('burgerid');
+      console.log(id);
+      $.ajax('/api/devour/' + id, { type: 'PUT' }).then(function () {
+
+      })
+      location.reload(true);
     })
+
+
+    $('#addBurger').on('click', function (event) {
+      event.preventDefault();
+      const burgerName = $('#burger-name').val().trim();
+      console.log(burgerName);
+      $.ajax('/api/addBurger/' + burgerName, { type: 'POST' }).then(function () {
+
+      })
+      location.reload(true);
     })
+  })
 
 </script>
