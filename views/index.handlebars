@@ -1,5 +1,18 @@
+<h2>Burgers to Devour</h2>
 <ul>
-  {{#each burger}}
+  {{#each burgerToEat}}
+  <li>
+    <p>
+      {{this.id}}. {{this.burger_name}}
+
+      <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
+<h2>Devoured Burgers</h2>
+<ul>
+  {{#each devouredBurgers}}
   <li>
     <p>
       {{this.id}}. {{this.burger_name}}
@@ -11,12 +24,15 @@
 </ul>
 
 <script>
+    $(document).ready(function() {
     $('.devour').on('click', function(event) {
         const id = $(this).data('burgerid');
         console.log(id);
         $.ajax('/api/devour/' + id, {type: 'DELETE'}).then(function() {
-            location.reload();
+            
         })
-        
+        location.reload(true);
     })
+    })
+
 </script>
