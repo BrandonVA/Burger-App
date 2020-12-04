@@ -8,5 +8,6 @@ module.exports = app => {
     app.delete('/api/devour/:id', (req, res) => {
         const burgerToDevour = req.params.id;
         burger.devourOne(burgerToDevour);
+        res.redirect('/')
     })
 }
