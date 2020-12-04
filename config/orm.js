@@ -11,16 +11,12 @@ const orm = {
         const query = `INSERT INTO ?? SET ?`;
         connection.query(query, [table, newRow], (err, results)=> {
             if (err) throw err;
-            // console.table(results);
-            
         });
     },
     updateOne: function (table, setColumn, columnValue, rowID ) {
         const query = `UPDATE ?? SET ?? = ? WHERE id = ?`;
         connection.query(query, [table, setColumn, columnValue, rowID],(err, results)=> {
             if (err) throw err;
-            // console.table(results);
-            
         });
     }
 }

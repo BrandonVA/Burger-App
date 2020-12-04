@@ -8,7 +8,6 @@ module.exports = app => {
     app.put('/api/devour/:id', (req, res) => {
         const burgerToDevour = req.params.id;
         burger.devourOne(burgerToDevour);
-        res.redirect('/')
     });
     app.post('/api/addBurger/:burgerName', (req, res) => {
         const burgerName = req.params.burgerName;
