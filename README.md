@@ -1,7 +1,7 @@
 # Burger-App
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[Deployed-Site](https://floating-taiga-94665.herokuapp.com/)
+[Deployed-Site](https://floating-taiga-94665.herokuapp.com/) <br />
 [Project-Page](https://github.com/BrandonVA/Burger-App)
 
 ## Description 
