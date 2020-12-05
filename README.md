@@ -6,7 +6,7 @@
 This is a simple full stack application that uses node.js and express with a mysql db to create a full stack application. The application itself is really simple there is a db that holds all the types of burgers and displays weather or not they have been devoured and you can add more if you want to.
 
 - Project Image
-<img src="public\assets\images\home-page.png">
+<img src="public\assets\images\project-image.png">
 
 
 ## Table of Contents
