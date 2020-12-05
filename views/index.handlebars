@@ -4,7 +4,7 @@
     <h1 class="display-4 mb-2">Eat Da Burger</h1>
     <img src="assets/images/burger.png" alt="clip art of a burger" class="rounded">
     <hr class="my-4">
-    <form >
+    <form>
       <label class="mx-3" for="burger-name">Add New Burger</label>
       <div class="input-group mx-3">
 
@@ -53,27 +53,3 @@
 
 
 
-<script>
-  $(document).ready(function () {
-    $('.devour').on('click', function (event) {
-      const id = $(this).data('burgerid');
-      console.log(id);
-      $.ajax('/api/devour/' + id, { type: 'PUT' }).then(function () {
-
-      })
-      location.reload(true);
-    })
-
-
-    $('#addBurger').on('click', function (event) {
-      event.preventDefault();
-      const burgerName = $('#burger-name').val().trim();
-      console.log(burgerName);
-      $.ajax('/api/addBurger/' + burgerName, { type: 'POST' }).then(function () {
-
-      })
-      location.reload(true);
-    })
-  })
-
-</script>
