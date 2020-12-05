@@ -7,12 +7,12 @@ module.exports = app => {
             res.render("index", data);
         });
     });
-    app.put('/api/devour/:id', (req, res) => {
-        const burgerToDevour = req.params.id;
+    app.put('/api/devour/', (req, res) => {
+        const burgerToDevour = req.body.id;
         burger.devourOne(burgerToDevour);
     });
-    app.post('/api/addBurger/:burgerName', (req, res) => {
-        const burgerName = req.params.burgerName;
+    app.post('/api/addBurger/', (req, res) => {
+        const burgerName = req.body.name;
         burger.createBurger(burgerName);
     })
 }
