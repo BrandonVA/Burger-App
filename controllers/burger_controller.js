@@ -3,7 +3,9 @@ const burger = require('../models/burger');
 
 module.exports = app => {
     app.get('/', (req, res) => {
-        burger.renderAll(res);
+        burger.renderAll((data) => {
+            res.render("index", data);
+        });
     });
     app.put('/api/devour/:id', (req, res) => {
         const burgerToDevour = req.params.id;

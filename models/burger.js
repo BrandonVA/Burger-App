@@ -1,16 +1,16 @@
 const orm = require('../config/orm');
 
 const burger = {
-    renderAll: function(res) {
-        orm.selectAll(res, 'burgers', (data) => {
+    renderAll: function(cb) {
+        orm.selectAll('burgers', (data) => {
             const devouredBurgers = data.filter(burger => burger.devoured === 1);
             const burgersToDevour = data.filter(burger => burger.devoured === 0);
             const burgerList = {
                 burgerToEat: burgersToDevour,
                 devouredBurgers: devouredBurgers
              }
-
-            res.render("index", burgerList);
+             cb(burgerList);
+            
         })
     },
     createBurger: function(title) {
