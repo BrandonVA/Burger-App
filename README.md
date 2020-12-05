@@ -1,6 +1,9 @@
 # Burger-App
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+[Deployed-Site](https://floating-taiga-94665.herokuapp.com/)
+[Project-Page](https://github.com/BrandonVA/Burger-App)
+
 ## Description 
 
 This is a simple full stack application that uses node.js and express with a mysql db to create a full stack application. The application itself is really simple there is a db that holds all the types of burgers and displays weather or not they have been devoured and you can add more if you want to.
