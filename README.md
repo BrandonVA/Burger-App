@@ -26,7 +26,7 @@ npm i
 
 ## Usage 
 
-Travel the Url and start adding and devouring some burgers! or start the server in your terminal with node server.js and go to localhost:8080/
+Travel to the Url and start adding and devouring some burgers! or start the server in your terminal with node server.js and go to localhost:8080/
 
 
 
